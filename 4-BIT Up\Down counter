@@ -2,6 +2,7 @@
 
 
 // 4-bit Up/down counter code//
+
 module COUNTER(
     input [1:0] clk,rst,m,
     output reg [3:0] count
