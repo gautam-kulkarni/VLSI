@@ -1,0 +1,41 @@
+
+//D Flip Flop Code//
+module DFF( Q,
+Qbar,
+D,
+Clk,
+Reset
+);
+output reg Q; 
+output Qbar; 
+input D, 
+Clk, 
+Reset; 
+assign Qbar = ~Q; 
+always @(posedge Clk) 
+begin 
+if (Reset == 1'b1) //If not at reset 
+Q = 1'b0;
+else 
+Q = D;
+end 
+endmodule
+
+
+
+//Test bench//
+
+initial begin
+// Initialize Inputs
+D = 1'b0;
+Clk = 1'b0;
+Reset = 1'b1;
+// Wait 100 ns for global reset to finish
+#100;
+// Add stimulus here
+Reset = 1'b0;
+#20;
+forever #40 D = ~ D;
+end
+always #10 Clk = ~Clk;       
+endmodule
