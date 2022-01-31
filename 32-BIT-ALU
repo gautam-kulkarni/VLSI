@@ -1,7 +1,67 @@
+New Project
+Name-.....>Next
+Parameter  Product Category:ALL
+Family-Spartan3E
+Speed- -4
+
+
+DESIGN BOX >
+right click and open new source
+
+Select source type > Verilog Module
+File Name:....>Next
+Define Module
+
+Write code 
+
+Next
+
++Synthesis XST
+Check Syntax
+
+TEST BENCH
+
+right click > new source >verilog text fixture
+ File Name: TB_<filename>
+ >Finish
+
+Input combination in initial begin
+ Select Simulation in design box
+ Click on simulate Behavioural modelNew Project
+Name-.....>Next
+Parameter  Product Category:ALL
+Family-Spartan3E
+Speed- -4
+
+
+DESIGN BOX >
+right click and open new source
+
+Select source type > Verilog Module
+File Name:....>Next
+Define Module
+
+Write code 
+
+Next
+
++Synthesis XST
+Check Syntax
+
+TEST BENCH
+
+right click > new source >verilog text fixture
+ File Name: TB_<filename>
+ >Finish
+
+Input combination in initial begin
+ Select Simulation in design box
+ Click on simulate Behavioural model
 
 
 
 //32-BIT-ALU code//
+
 module ALU(
     input [31:0] a,b,
     input [2:0] f,
@@ -23,6 +83,7 @@ end
 endmodule
 
 //Test Bench//
+
 initial
 begin
 a=32'h00000000;
