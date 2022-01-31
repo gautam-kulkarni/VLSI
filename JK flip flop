@@ -1,0 +1,57 @@
+sourec code
+
+
+module jkflipflop(output reg q,qbar,input j,k,clk,clr);
+always@(posedge clk)
+if( clr == 1'b1)
+begin
+q<=1'b0;qbar<=1'b1;end
+else
+case({j,k})
+2'b00: begin q<=q;qbar<=qbar;end
+2'b01: begin q<=1'b0;qbar<=1'b1;end
+2'b10: begin q<=1'b1;qbar<=1'b0;end
+2'b11: begin q<=~q;qbar<=~qbar;end
+default: {q,qbar}<=2'bxx;
+endcase
+
+test bench
+
+module tb_jkflipflop;
+
+	// Inputs
+	reg j;
+	reg k;
+	reg clk;
+	reg clr;
+
+	// Outputs
+	wire q;
+	wire qbar;
+
+	// Instantiate the Unit Under Test (UUT)
+	jkflipflop uut (
+		.q(q), 
+		.qbar(qbar), 
+		.j(j), 
+		.k(k), 
+		.clk(clk), 
+		.clr(clr)
+	);
+
+	initial begin
+		// Initialize Inputs
+		j = 0;
+		k = 0;
+		clk = 0;
+		clr = 1;
+		end
+		always #1 clk=~clk;
+		always #2 {j,k}={j,k}+1'b1;
+		initial #10 clr=1'b0;
+		initial #100 $finish;
+
+      
+endmodule
+
+
