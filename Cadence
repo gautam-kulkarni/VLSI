@@ -1,0 +1,36 @@
+FOR DESIGN
+
+Step 1 > cd b1
+	mkdir usn
+	cd usn	
+	csh 
+	source /home/installs/cshrc
+//new window appears-displaying welcome to cadence- virtuoso &
+step 2 > in virtuoso main -file-new -library-give library name(expt name)-apply-select gpdk180-apply-ok-ok
+step 3 >main - file -cellview -select your library- give cell name(ex:nor_gate)-schematic editor opens 
+step 4 > click create instance-browse-gpdk180 - draw respective circuit - check and save (output-main-no error) schematic check complete
+step 5 > schematic editor-create - cell view - from cell view -( library name appears) select ok - symbol generation operation opens - give left,right,top,bottom pins -apply-ok
+(output -symbol appears(any shape symbol))
+step 6 > minimise schematic - minimise symbol - main - file - cell view - give cell name as _test( ex: nor_test) -ok- create instance - browse - your file name (not test) -  
+selct the symbol appeared and paste 
+step 7 > create instance - browse - slect analogLib in library section - select vpulse (in cell) - provide with : v1=0,v2=1.8v,delay=1ns,risetime=1ns,falltime=1ns,pulsewidth=10ns,period=20ns - 
+check and save
+step 8 > in schematic editor - launch - ADEL - window opens -set up -model libraries - tick mark only 3rd one -ok - in ADEL -analysis - choose - select tran- stop time=400ns - moderate - ok - 
+in ADEL - analysis - choose - select dc - save dc operating point - select component (schematic appears )- component parameter - sweep range: start=0,stop=1.8 - ok
+select component - select vdd(from symbol diagram) - new window appears (selct vdc)
+in ADEL - output - to be plotted - select on design - select input and output wires 
+
+FOR LAYOUT
+
+step 1 > schematic window - launch - layout XL - create new(option) - ok
+step 2 > generate all from source (botoom left pin ) - i/o pins - selct vdd - ok
+step 3 > goto place - pin placement - select vdd - in attributes(edge-top)-apply-HRail-apply
+step 4 > select Vss - in Attibutes(edge bottom)-apply-HRail-Apply
+step 5 > select Vin - in attributes( edge -left) - apply
+step 6 > select Vout -Edge - right- apply- close
+step 7 > press shift+F - line appears on design 
+step 8 > create- wiring- wire- click on poly- connect from poly to poly
+step 9 > create- via- nwell- hide- place on the walls of pmos(right side)
+step 10 > go to assura- run DRC- View rules files- attach gpdk180
+(browse-> /home/installs/FOUNDARY/analog/180nm/pv/assura/drc.ru1)
+step 11 > go to assura- run LVS- run directory(file name)- ok-ok-ok
