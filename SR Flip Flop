@@ -1,4 +1,4 @@
-Source code
+//Source code//
 
 module srff_behave(s,r,clk, q, qbar);
 input s,r,clk;
