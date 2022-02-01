@@ -14,8 +14,8 @@ endmodule
 
 //Test Bench//
 module dff_test;
-reg S,R, CLK;
-wire Q, QBAR;
+reg s,r, clk;
+wire q, qbar;
 srff_behavior srff_behavior dut
 (.q(Q),
 .qbar(QBAR),
