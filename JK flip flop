@@ -5,7 +5,9 @@ module jkflipflop(output reg q,qbar,input j,k,clk,clr);
 always@(posedge clk)
 if( clr == 1'b1)
 begin
-q<=1'b0;qbar<=1'b1;end
+q<=1'b0;
+qbar<=1'b1;
+end
 else
 case({j,k})
 2'b00: begin q<=q;qbar<=qbar;end
