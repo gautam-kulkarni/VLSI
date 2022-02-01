@@ -1,4 +1,4 @@
-sourec code
+source code
 
 
 module jkflipflop(output reg q,qbar,input j,k,clk,clr);
